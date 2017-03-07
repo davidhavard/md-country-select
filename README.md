@@ -14,25 +14,25 @@ You can install this package either with `npm` or with `bower`.
 ### npm
 
 ```shell
-npm install ng-country-select
+npm install md-country-select
 ```
 
 Then add the `<script>` to your `index.html`:
 
 ```html
-<script src="/node_modules/ng-country-select/dist/ng-country-select.js"></script>
+<script src="/node_modules/md-country-select/dist/md-country-select.js"></script>
 ```
 
 ### bower
 
 ```shell
-bower install ng-country-select
+bower install md-country-select
 ```
 
 Then add a `<script>` to your `index.html`:
 
 ```html
-<script src="/bower_components/ng-country-select/dist/ng-country-select.js"></script>
+<script src="/bower_components/md-country-select/dist/md-country-select.js"></script>
 ```
 
 ## Usage
