@@ -14,7 +14,6 @@ describe 'md-country-select', ->
     isolateScope = null
     compile = null
     element = null
-    firstOption = null
 
     beforeEach module 'mdCountrySelect'
     beforeEach inject ($rootScope, $compile) ->
@@ -29,7 +28,7 @@ describe 'md-country-select', ->
 
       isolateScope = element.isolateScope()
     
-      firstOption = -> element.find('md-option')[0]
+    firstOption = -> element.find('md-option')[0]
 
     allCountriesCount = 250
     includingOptionalCount = allCountriesCount + 1
@@ -57,7 +56,7 @@ describe 'md-country-select', ->
           expect(isolateScope.isSelectionOptional).toBe true
 
         it 'sets the first option to be an empty option', ->
-          expect(firstOption().value).toEqual ''
+          expect(firstOption().getAttribute('ng-value')).toEqual ''
           expect(firstOption().textContent).toEqual ''
 
       describe 'when specified', ->
@@ -68,8 +67,8 @@ describe 'md-country-select', ->
           expect(isolateScope.isSelectionOptional).toBe false
 
         it 'sets the first option to be the first country', ->
-          expect(firstOption().value).toEqual '0'
-          expect(firstOption().textContent).toEqual 'Afghanistan'
+          expect(firstOption().value).toEqual 'AF'
+          expect(firstOption().textContent.trim()).toEqual 'Afghanistan'
 
     describe 'with priority countries specified', ->
       beforeEach -> compileSource '<md-country-select ng-model="selectedCountry" cs-priorities="AU, GB , US"></md-country-select>'

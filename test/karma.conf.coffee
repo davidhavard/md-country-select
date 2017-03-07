@@ -11,6 +11,7 @@ module.exports = (config) ->
   # list of files / patterns to load in the browser
     files: [
       'node_modules/angular/angular.js',
+      'node_modules/angular-material/angular-material.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'src/**/*.coffee'
       'test/unit/**/*.coffee'
@@ -44,7 +45,7 @@ module.exports = (config) ->
   # - config.LOG_WARN
   # - config.LOG_INFO
   # - config.LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.DEBUG
 
   # enable / disable watching file and executing tests whenever any file changes
     autoWatch: true

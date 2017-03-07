@@ -764,7 +764,7 @@
         only: '@csOnly',
         except: '@csExcept'
       },
-      template: '<md-select placeholder="Select Country"> <md-option ng-value="" ng-if="isSelectionOptional"></option> <md-option ng-repeat="country in countries" ng-value="country"> {{country.name}} </md-option> </md-select>',
+      template: '<md-select placeholder="Select Country"> <md-option ng-value="" ng-if="isSelectionOptional"></md-option> <md-option ng-repeat="country in countries" ng-value="country.code"> {{country.name}} </md-option> </md-select>',
       controller: [
         '$scope', '$attrs', function($scope, $attrs) {
           var countryCodesIn, findCountriesIn, includeOnlyRequestedCountries, removeCountry, removeExcludedCountries, separator, updateWithPriorityCountries;
