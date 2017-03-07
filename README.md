@@ -7,33 +7,6 @@ Angular module to generate an angular-material select list of countries using co
 
 Adapted from [ng-country-select](https://github.com/navinpeiris/ng-country-select)
 
-## Install
-
-You can install this package either with `npm` or with `bower`.
-
-### npm
-
-```shell
-npm install md-country-select
-```
-
-Then add the `<script>` to your `index.html`:
-
-```html
-<script src="/node_modules/md-country-select/dist/md-country-select.js"></script>
-```
-
-### bower
-
-```shell
-bower install md-country-select
-```
-
-Then add a `<script>` to your `index.html`:
-
-```html
-<script src="/bower_components/md-country-select/dist/md-country-select.js"></script>
-```
 
 ## Usage
 
