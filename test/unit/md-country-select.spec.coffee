@@ -67,7 +67,7 @@ describe 'md-country-select', ->
           expect(isolateScope.isSelectionOptional).toBe false
 
         it 'sets the first option to be the first country', ->
-          expect(firstOption().value).toEqual 'AF'
+          expect(firstOption().getAttribute('value')).toEqual 'AF'
           expect(firstOption().textContent.trim()).toEqual 'Afghanistan'
 
     describe 'with priority countries specified', ->
