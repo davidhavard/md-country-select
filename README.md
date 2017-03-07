@@ -1,11 +1,11 @@
-# ng-country-select
+# md-country-select
 
-[![Build Status](https://travis-ci.org/navinpeiris/ng-country-select.svg?branch=master)](https://travis-ci.org/navinpeiris/ng-country-select)
+[![Build Status](https://travis-ci.org/davidhavard/md-country-select.svg?branch=master)](https://travis-ci.org/davidhavard/md-country-select)
 
-Angular module to generate an HTML select list of countries using country codes in the
+Angular module to generate an angular-material select list of countries using country codes in the
 [ISO 3166-1 standard](https://en.wikipedia.org/wiki/ISO_3166-1).
 
-Closely resembles the behaviour of the [country_select](https://github.com/stefanpenner/country_select) ruby gem.
+Adapted from [ng-country-select](https://github.com/navinpeiris/ng-country-select)
 
 ## Install
 
@@ -37,40 +37,40 @@ Then add a `<script>` to your `index.html`:
 
 ## Usage
 
-Add `countrySelect` as a dependency for your app:
+Add `mdCountrySelect` as a dependency for your app:
 
 ```javascript
-angular.module('myApp', ['...', 'countrySelect', '...'])
+angular.module('myApp', ['...', 'mdCountrySelect', '...'])
 ```
 
 Simple usage to get a list of countries:
 
 ```html
-<country-select></country-select>
+<md-country-select></md-country-select>
 ```
 
 Supplying priority countries to be placed at the top of the list:
 
 ```html
-<country-select cs-priorities="AU, DE, GB, US"></country-select>
+<md-country-select cs-priorities="AU, DE, GB, US"></md-country-select>
 ```
 
 Supplying only certain countries:
 
 ```html
-<country-select cs-only="AU, DE, GB, US"></country-select>
+<md-country-select cs-only="AU, DE, GB, US"></md-country-select>
 ```
 
 Discarding certain countries:
 
 ```html
-<country-select cs-except="AU, DE, GB, US"></country-select>
+<md-country-select cs-except="AU, DE, GB, US"></md-country-select>
 ```
 
 Making the selection mandatory by removing the empty option:
 
 ```html
-<country-select cs-required></country-select>
+<md-country-select cs-required></md-country-select>
 ```
 
 ## License

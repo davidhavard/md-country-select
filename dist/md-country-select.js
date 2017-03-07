@@ -1,7 +1,7 @@
 (function() {
   var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  angular.module('countrySelect', []).directive('countrySelect', function() {
+  angular.module('mdCountrySelect', []).directive('mdCountrySelect', function() {
     var allCountries;
     allCountries = [
       {
@@ -764,7 +764,7 @@
         only: '@csOnly',
         except: '@csExcept'
       },
-      template: '<select ng-options="country.code as country.name for country in countries"> <option value="" ng-if="isSelectionOptional"></option> </select>',
+      template: '<md-select placeholder="Select Country"> <md-option ng-value="" ng-if="isSelectionOptional"></option> <md-option ng-repeat="country in countries" ng-value="country"> {{country.name}} </md-option> </md-select>',
       controller: [
         '$scope', '$attrs', function($scope, $attrs) {
           var countryCodesIn, findCountriesIn, includeOnlyRequestedCountries, removeCountry, removeExcludedCountries, separator, updateWithPriorityCountries;

@@ -1,6 +1,6 @@
 angular
-.module 'countrySelect', []
-.directive 'countrySelect', ->
+.module 'mdCountrySelect', []
+.directive 'mdCountrySelect', ->
   allCountries = [
     { code: 'AF', name: 'Afghanistan' },
     { code: 'AL', name: 'Albania' },
@@ -260,9 +260,13 @@ angular
     priorities: '@csPriorities'
     only: '@csOnly'
     except: '@csExcept'
-  template: '<select ng-options="country.code as country.name for country in countries">
-                <option value="" ng-if="isSelectionOptional"></option>
-             </select>'
+  template: '
+    <md-select placeholder="Select Country">
+      <md-option ng-value="" ng-if="isSelectionOptional"></option>
+      <md-option ng-repeat="country in countries" ng-value="country.code">
+        {{country.name}}
+      </md-option>
+    </md-select>'
   controller: ['$scope', '$attrs', ($scope, $attrs) ->
     separator =
       code: '-'

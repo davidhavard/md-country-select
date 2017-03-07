@@ -1,4 +1,4 @@
-describe 'ng-country-select', ->
+describe 'md-country-select', ->
   beforeEach ->
     jasmine.addMatchers
       toBeEmpty: ->
@@ -14,8 +14,9 @@ describe 'ng-country-select', ->
     isolateScope = null
     compile = null
     element = null
+    firstOption = null
 
-    beforeEach module 'countrySelect'
+    beforeEach module 'mdCountrySelect'
     beforeEach inject ($rootScope, $compile) ->
       scope = $rootScope.$new()
       compile = $compile
@@ -23,16 +24,16 @@ describe 'ng-country-select', ->
       scope.selectedCountry = 'AU'
 
     compileSource = (source) ->
-      element = compile(source)(scope);
+      element = compile(source)(scope)
       scope.$digest()
 
       isolateScope = element.isolateScope()
+    
+      firstOption = -> element.find('md-option')[0]
 
     allCountriesCount = 250
     includingOptionalCount = allCountriesCount + 1
-    basicSource = '<country-select ng-model="selectedCountry"></country-select>'
-
-    firstOption = -> element.find('option')[0]
+    basicSource = '<md-country-select ng-model="selectedCountry"></md-country-select>'
 
     describe 'basic usage', ->
       beforeEach -> compileSource basicSource
@@ -42,10 +43,10 @@ describe 'ng-country-select', ->
         expect(isolateScope.countries.length).toEqual allCountriesCount
 
       it 'replaces the directive element with a select', ->
-        expect(element[0].nodeName).toEqual 'SELECT'
+        expect(element[0].nodeName).toEqual 'MD-SELECT'
 
       it 'populates the select with options', ->
-        expect(element.find('option').length).toEqual includingOptionalCount
+        expect(element.find('md-option').length).toEqual includingOptionalCount
 
     describe 'with required attribute', ->
       describe 'when not specified', ->
@@ -60,7 +61,7 @@ describe 'ng-country-select', ->
           expect(firstOption().textContent).toEqual ''
 
       describe 'when specified', ->
-        beforeEach -> compileSource '<country-select ng-model="selectedCountry" cs-required></country-select>'
+        beforeEach -> compileSource '<md-country-select ng-model="selectedCountry" cs-required></md-country-select>'
 
         it 'sets the isSelectionOptional flag in scope to be false', ->
           expect(isolateScope.isSelectionOptional).toBeDefined()
@@ -71,7 +72,7 @@ describe 'ng-country-select', ->
           expect(firstOption().textContent).toEqual 'Afghanistan'
 
     describe 'with priority countries specified', ->
-      beforeEach -> compileSource '<country-select ng-model="selectedCountry" cs-priorities="AU, GB , US"></country-select>'
+      beforeEach -> compileSource '<md-country-select ng-model="selectedCountry" cs-priorities="AU, GB , US"></md-country-select>'
 
       it 'sets the priority elements in the order specified at the start of the list', ->
         expect(isolateScope.countries[0].code).toEqual 'AU'
@@ -88,7 +89,7 @@ describe 'ng-country-select', ->
     #        expect(element.find('option')[4].disabled).toEqual true
 
     describe 'with only option specified', ->
-      beforeEach -> compileSource '<country-select ng-model="selectedCountry" cs-only="AU, GB , US"></country-select>'
+      beforeEach -> compileSource '<md-country-select ng-model="selectedCountry" cs-only="AU, GB , US"></md-country-select>'
 
       it 'only contains the countries specified in the list in the order given', ->
         expect(isolateScope.countries.length).toEqual 3
@@ -98,7 +99,7 @@ describe 'ng-country-select', ->
         expect(isolateScope.countries[2].code).toEqual 'US'
 
     describe 'with except option specified', ->
-      beforeEach -> compileSource '<country-select ng-model="selectedCountry" cs-except="AU, GB , US"></country-select>'
+      beforeEach -> compileSource '<md-country-select ng-model="selectedCountry" cs-except="AU, GB , US"></md-country-select>'
 
       it 'does not contain the specified countries', ->
         expect(isolateScope.countries.length).toEqual (allCountriesCount - 3)

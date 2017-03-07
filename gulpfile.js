@@ -14,9 +14,9 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('minify', ['scripts'], function () {
-    gulp.src('dist/ng-country-select.js')
+    gulp.src('dist/md-country-select.js')
         .pipe($.uglify())
-        .pipe($.concat('ng-country-select.min.js'))
+        .pipe($.concat('md-country-select.min.js'))
         .pipe(gulp.dest('dist'))
 });
 
